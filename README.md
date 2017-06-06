@@ -15,7 +15,7 @@ package main
 import (
 	"net/http"
 
-	gotrends "github.com/kahalKevin/instagot"
+	instagot "github.com/kahalKevin/instagot"
 )
 
 func main() {
