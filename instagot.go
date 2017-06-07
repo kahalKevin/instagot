@@ -14,7 +14,7 @@ import (
 	"golang.org/x/net/html/atom"
 )
 
-func GetImage(url string) image.Image{
+func GetUrlImage(url string) string{
 	// request and parse the front page
 	resp, err := http.Get(url)
 	if err != nil {
@@ -42,6 +42,11 @@ func GetImage(url string) image.Image{
 
 	IndexOfLinkEnd := strings.Index(AfterSignDisplayUrl[1:], `"`)
 	DisplayUrl := AfterSignDisplayUrl[1:IndexOfLinkEnd+1]
+	return DisplayUrl
+}
+
+func GetImage(url string) image.Image{
+	DisplayUrl := GetUrlImage(url)
 
 	response, e := http.Get(DisplayUrl)
     if e != nil {
